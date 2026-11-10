@@ -1,6 +1,8 @@
-# agent-demo：能读 Excel、查数据库的最小 Agent
+# LLM Function Calling Agent：能读 Excel、查数据库的最小 Agent
 
-一个 Agent Demo：核心代码约 420 行（含测试与数据脚本共 730 行）。模型通过 Function Calling 自主决定调用哪个工具（读 Excel / 查 SQLite），拿到真实数据后再作答，不靠编。
+> 手写 Function Calling 循环，不依赖 LangChain 等编排框架。核心代码约 420 行（含测试、数据脚本与文档共 920 行）。
+
+模型通过 Function Calling 自主决定调用哪个工具（读 Excel / 查 SQLite），拿到真实数据后再作答，不靠编。
 
 做它是为了回答一个具体问题：**Agent 和"聊天机器人"到底差在哪。** 差别不在模型，在循环——模型只负责决策，执行、校验、兜底全是代码的事。
 
@@ -9,7 +11,8 @@
 ## 一、5 分钟跑通
 
 ```bash
-cd agent-demo
+git clone https://github.com/LL7-1/llm-function-calling-agent.git
+cd llm-function-calling-agent
 pip install -r requirements.txt
 
 # 1) 生成示例数据（60 条订单 + 4 个产品）
